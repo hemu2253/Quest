@@ -21,11 +21,6 @@ body {
 }
 
 .timer {
-    width: 50px;
-    border: 1px solid grey;
-}
-
-.timer {
     width: 20px;
     right: 50px;
 }
