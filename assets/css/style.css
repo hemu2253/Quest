@@ -23,6 +23,7 @@ body {
 .timer {
     width: 20px;
     right: 50px;
+    float: left;
 }
 
 
