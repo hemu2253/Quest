@@ -10,13 +10,12 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
     <!-- <style>
-        input[type=text] {
-            width: 100%;
-            padding: 1px 20px;
-            margin: 0px 0;
-            box-sizing: border-box;
-            border: none;
-            border-bottom: 2px solid black;
+        .content {
+            width: auto;
+            height: 100px;
+            padding: 15px;
+            background-color: transparent;
+            box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
         }
     </style> -->
 
@@ -27,48 +26,51 @@
                     <a href="#"><img class="logo" src="./assets/img/logo.png" alt="GGK Tech"></a>
                 </div>
                 <div class="navbar-header navbar-right">
-                    <div class="timer">
-                        <img class="timer-logo" src="./assets/img/timer.svg" alt="timer">
-                    </div>
-                    <button id="singlebutton" name="singlebutton" class="btn" style="background-color: green;color: white;">Button</button>
+                    <img class="timer" src="./assets/img/timer.svg" alt="timer">
+                    <p id="demo" style="color: red;font-weight:bold;"></p>
+                    <!-- <button id="singlebutton" name="singlebutton" class="btn" style="background-color: green;color: white;">Button</button> -->
                 </div>
             </div>
         </nav>
 
         <div class="container-fluid">
-            <div class="content  text-center">
-                <div class="col-md-12">
-                    <h2 style="color: skyblue">Test Name</h2>
-                    <h3 style="color: grey">Test Page</h3><br><br><br><br>
+            <div class="content">
+                <div class="col-md-4">
+                    <hr>
                 </div>
             </div>
 
-            <div class="content">
-                <div class="col-md-6 col-md-offset-3">
-<!--                     <p style="color: black">1. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
-                        Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. </p>
-                    <p style="color: black">2. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
-                        Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
-                    <p style="color: black">3. Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type
-                        specimen book. </p>
-                    <p style="color: black">4. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more
-                        recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.</p>
-                    <p style="color: black">5. Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type
-                        specimen book. </p>
-                    <p style="color: black">6. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more
-                        recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.</p> -->
-                </div>
-            </div>
-            <div class="content" align="center">
-                <div class="col-md-12">
-                    <div class="form-group">
-                        <div class="col-md-6 col-md-offset-3">
-                            <a href="test.html"><button id="singlebutton" name="singlebutton" class="btn btn-primary">I am ready to take Test</button></a>
-                        </div>
-                    </div>
-                </div>
-            </div>
         </div>
+        <script>
+            // Set the date we're counting down to
+            var countDownDate = new Date("Jan 5, 2018 15:37:25").getTime();
+
+            // Update the count down every 1 second
+            var x = setInterval(function() {
+
+                // Get todays date and time
+                var now = new Date().getTime();
+
+                // Find the distance between now an the count down date
+                var distance = countDownDate - now;
+
+                // Time calculations for days, hours, minutes and seconds
+
+                var hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+                var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+                var seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+                // Output the result in an element with id="demo"
+                document.getElementById("demo").innerHTML = hours + "h " +
+                    minutes + "m " + seconds + "s ";
+
+                // If the count down is over, write some text 
+                if (distance < 0) {
+                    clearInterval(x);
+                    document.getElementById("demo").innerHTML = "EXPIRED";
+                }
+            }, 1000);
+        </script>
     </body>
 </head>
 
