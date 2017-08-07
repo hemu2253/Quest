@@ -9,7 +9,193 @@
     <link rel="stylesheet" href="./assets/css/style.css" type="text/css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-
+    <style>
+        .content {
+            padding-top: 1%;
+            padding-left: 1%
+        }
+        
+        .qstn-section {
+            height: 80%;
+            box-shadow: 0px 0 3px #000;
+            padding-top: 2%;
+            overflow-y: auto;
+        }
+        
+        .qstn-numbers {
+            height: 50%;
+            padding-top: 2%;
+            box-shadow: 0px 0 3px #000;
+            overflow-y: auto;
+        }
+        
+        .legend {
+            height: 30%;
+            padding-top: 2%;
+            box-shadow: 0px 0 3px #000;
+            overflow-y: auto;
+        }
+        
+        .side-bar {
+            height: 80%;
+            box-shadow: 0px 0 3px #000;
+            padding-right: 2%;
+            padding-top: 2%;
+        }
+        
+        .review {
+            padding-top: 5%;
+        }
+        
+        .clear-response {
+            padding-top: 5%;
+        }
+        
+        .options-section {
+            height: 80%;
+            box-shadow: 0px 0 3px #000;
+            padding-top: 4%;
+            overflow-y: auto;
+        }
+        
+        .footer {
+            margin-top: 1%;
+            padding-top: 1%;
+            height: 8%;
+            width: 100%;
+        }
+        
+        .filter {
+            height: 14%;
+            padding-top: 2%;
+            box-shadow: 0px 0 3px #000;
+            overflow-y: auto;
+        }
+        
+        .box-qstn {
+            background-color: transparent;
+            max-width: 30px;
+            height: 30px;
+            margin: 5px;
+            cursor: pointer;
+            /* text-align: justify; */
+        }
+        /*Legend  */
+        
+        .box {
+            width: 20px;
+            height: 20px;
+        }
+        
+        .green {
+            background: green;
+            box-shadow: 0 0 3px green;
+        }
+        
+        .transparent {
+            background: transparent;
+            box-shadow: 0 0 3px black;
+        }
+        
+        .orange {
+            background: orange;
+            box-shadow: 0 0 3px orange;
+        }
+        /* The Modal (background) */
+        
+        .modal {
+            display: none;
+            /* Hidden by default */
+            position: fixed;
+            /* Stay in place */
+            z-index: 1;
+            /* Sit on top */
+            padding-top: 100px;
+            /* Location of the box */
+            left: 0;
+            top: 0;
+            width: 100%;
+            /* Full width */
+            height: 100%;
+            /* Full height */
+            overflow: auto;
+            /* Enable scroll if needed */
+            background-color: rgb(0, 0, 0);
+            /* Fallback color */
+            background-color: rgba(0, 0, 0, 0.4);
+            /* Black w/ opacity */
+        }
+        /* Modal Content */
+        
+        .modal-content {
+            position: relative;
+            background-color: #fefefe;
+            margin: auto;
+            padding: 0;
+            border: 1px solid #888;
+            width: 80%;
+            box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+            -webkit-animation-name: animatetop;
+            -webkit-animation-duration: 0.4s;
+            animation-name: animatetop;
+            animation-duration: 0.4s
+        }
+        /* Add Animation */
+        
+        @-webkit-keyframes animatetop {
+            from {
+                top: -300px;
+                opacity: 0
+            }
+            to {
+                top: 0;
+                opacity: 1
+            }
+        }
+        
+        @keyframes animatetop {
+            from {
+                top: -300px;
+                opacity: 0
+            }
+            to {
+                top: 0;
+                opacity: 1
+            }
+        }
+        /* The Close Button */
+        
+        .close {
+            color: white;
+            float: right;
+            font-size: 28px;
+            font-weight: bold;
+        }
+        
+        .close:hover,
+        .close:focus {
+            color: #000;
+            text-decoration: none;
+            cursor: pointer;
+        }
+        
+        .modal-header {
+            padding: 2px 16px;
+            background-color: #5cb85c;
+            color: white;
+            text-align: center;
+        }
+        
+        .modal-body {
+            padding: 2px 16px;
+        }
+        
+        .modal-footer {
+            padding: 2px 16px;
+            background-color: #5cb85c;
+            color: white;
+        }
+    </style>
 
     <body>
         <nav class="navbar navbar-default" style="background-color: white">
@@ -17,23 +203,142 @@
                 <div class="navbar-header">
                     <a href="#"><img class="logo" src="./assets/img/logo.png" alt="GGK Tech"></a>
                 </div>
-                <div class="navbar-header navbar-right" style="width: 100px;margin-top: 10px;">
-                    <img class="timer" src="./assets/img/timer.svg" alt="timer">
-                    <p id="demo" style="color: red;font-weight:bold;"></p>
-                    <!-- <button id="singlebutton" name="singlebutton" class="btn" style="background-color: green;color: white;">Button</button> -->
+                <div class="navbar-header navbar-right" style="width: 250px;margin-top: 10px;">
+                    <div class="heading">
+                        <!-- <button id="myBtn" name="singlebutton" class="btn" style="background-color: red;color: white;">Instructions</button> -->
+                        <img id="myBtn" style="width: 20px;margin-right: 2px;cursor: pointer;" src="./assets/img/info.svg" alt="Instructions">
+                        <a href="./result.html"><button id="singlebutton" name="singlebutton" class="btn" style="background-color: green;color: white;">FINISH</button></a>
+                        <img class="timer" src="./assets/img/timer1.svg" alt="timer">
+                        <!-- <p id="demo" style="color: blue;font-weight:bold;"></p> -->
+                    </div>
                 </div>
             </div>
         </nav>
+        <div id="myModal" class="modal">
 
-        <div class="container-fluid">
-            <div class="content">
-                <div class="col-md-4">
-                    <hr>
+            <!-- Modal content -->
+            <div class="modal-content">
+                <div class="modal-header">
+                    <span class="close">&times;</span>
+                    <h2>Instructions</h2>
+                </div>
+                <div class="modal-body">
+                    <p>Random</p>
+                </div>
+                <div class="modal-footer">
+                    <h3>Footer</h3>
                 </div>
             </div>
 
         </div>
-        <script>
+        <div class="container-fluid">
+            <div class="content">
+                <div class="col-md-5 qstn-section">
+                    <div class="qstn" style="color: black;">
+                        <p> Q# 1</p>
+                        <h3>This is sample question</h3>
+                    </div>
+                    <div class="review" align="left">
+                        <button id="singlebutton" name="singlebutton" class="btn" style="background-color: orange;color: white;">Mark for review</button>
+                    </div>
+                </div>
+                <div class="col-md-5 options-section">
+                    <div class="option" style="color: black;">
+                        <div class="radio">
+                            <label for="radios-0">
+                            <input type="radio" name="radios" id="radios-0" value="1" checked="checked">
+                            Option one
+                            </label>
+                        </div>
+                        <div class="radio">
+                            <label for="radios-0">
+                                <input type="radio" name="radios" id="radios-0" value="1">
+                                 Option two
+                            </label>
+                        </div>
+                        <div class="radio">
+                            <label for="radios-0">
+                                <input type="radio" name="radios" id="radios-0" value="1">
+                                 Option three
+                            </label>
+                        </div>
+                        <div class="radio">
+                            <label for="radios-0">
+                                <input type="radio" name="radios" id="radios-0" value="1">
+                                 Option four
+                            </label>
+                        </div>
+
+                    </div>
+                    <div class="clear-response" align="right">
+                        <button id="singlebutton" name="singlebutton" class="btn" style="background-color: blue;color: white;">Clear Response</button>
+                    </div>
+                </div>
+                <div class="col-md-2 side-bar">
+                    <div class="form-group qstn-numbers">
+                        <div class="col-md-12">
+                            <select id="selectbasic" name="selectbasic" class="form-control">
+                             <option value="1">Section 1</option>
+                             <option value="2">Section 2</option>
+                            </select>
+                        </div>
+                        <br>
+                        <div class="col-md-12">
+                            <br>
+                            <button id="singlebutton" name="singlebutton" class="box-qstn transparent btn btn-qstn-num" style="background-color: transparent;color: black;">1</button>
+                            <button id="singlebutton" name="singlebutton" class="box-qstn transparent btn btn-qstn-num" style="background-color: transparent;color: black;">2</button>
+                            <button id="singlebutton" name="singlebutton" class="box-qstn transparent btn btn-qstn-num" style="background-color: transparent;color: black;">3</button>
+                            <button id="singlebutton" name="singlebutton" class="box-qstn transparent btn btn-qstn-num" style="background-color: transparent;color: black;">4</button>
+                            <button id="singlebutton" name="singlebutton" class="box-qstn transparent btn btn-qstn-num" style="background-color: transparent;color: black;">5</button>
+                            <button id="singlebutton" name="singlebutton" class="box-qstn transparent btn btn-qstn-num" style="background-color: transparent;color: black;">6</button>
+                            <button id="singlebutton" name="singlebutton" class="box-qstn transparent btn btn-qstn-num" style="background-color: transparent;color: black;">7</button>
+                            <button id="singlebutton" name="singlebutton" class="box-qstn transparent btn btn-qstn-num" style="background-color: transparent;color: black;">8</button>
+                            <button id="singlebutton" name="singlebutton" class="box-qstn transparent btn btn-qstn-num" style="background-color: transparent;color: black;">9</button>
+                            <button id="singlebutton" name="singlebutton" class="box-qstn transparent btn btn-qstn-num" style="background-color: transparent;color: black;">10</button>
+                            <button id="singlebutton" name="singlebutton" class="box-qstn transparent btn btn-qstn-num" style="background-color: transparent;color: black;">11</button>
+                            <button id="singlebutton" name="singlebutton" class="box-qstn transparent btn btn-qstn-num" style="background-color: transparent;color: black;">12</button>
+                            <button id="singlebutton" name="singlebutton" class="box-qstn transparent btn btn-qstn-num" style="background-color: transparent;color: black;">13</button>
+                            <button id="singlebutton" name="singlebutton" class="box-qstn transparent btn btn-qstn-num" style="background-color: transparent;color: black;">14</button>
+                            <button id="singlebutton" name="singlebutton" class="box-qstn transparent btn btn-qstn-num" style="background-color: transparent;color: black;">15</button>
+                        </div>
+                    </div>
+
+                    <div class="form-group legend">
+                        <div class="col-md-12">
+                            <h4>Legend</h4><br>
+                            <div class="box green">
+                                <h4 style="margin-left: 30px;color:#000"> Answered</h4>
+                            </div>
+                            <div class="box transparent">
+                                <h4 style="margin-left: 30px;color:#000"> Unanswered</h4>
+                            </div>
+                            <div class="box orange">
+                                <h4 style="margin-left: 30px;color:#000"> Review</h4>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-group filter">
+                        <div class="col-md-12">
+                            <label class="col-md-12 control-label" for="selectbasic">Questions Filter</label>
+                            <select id="selectbasic" name="selectbasic" class="form-control">
+                             <option value="1">All</option>
+                             <option value="2">Unanswered</option>
+                             <option value="2">Answered</option>
+                             <option value="2">Review</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="content footer">
+            <div class="col-md-12">
+                <p style="text-align: center">Copyright @ GGKTech 2017</p>
+                <div class="prev-next">
+                </div>
+            </div>
+        </div>
+        <!-- <script>
             // Set the date we're counting down to
             var countDownDate = new Date("Jan 5, 2018 15:37:25").getTime();
 
@@ -62,6 +367,33 @@
                     document.getElementById("demo").innerHTML = "EXPIRED";
                 }
             }, 1000);
+        </script> -->
+        <script>
+            // Get the modal
+            var modal = document.getElementById('myModal');
+
+            // Get the button that opens the modal
+            var btn = document.getElementById("myBtn");
+
+            // Get the <span> element that closes the modal
+            var span = document.getElementsByClassName("close")[0];
+
+            // When the user clicks the button, open the modal 
+            btn.onclick = function() {
+                modal.style.display = "block";
+            }
+
+            // When the user clicks on <span> (x), close the modal
+            span.onclick = function() {
+                modal.style.display = "none";
+            }
+
+            // When the user clicks anywhere outside of the modal, close it
+            window.onclick = function(event) {
+                if (event.target == modal) {
+                    modal.style.display = "none";
+                }
+            }
         </script>
     </body>
 </head>

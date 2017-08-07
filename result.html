@@ -3,13 +3,25 @@
 
 <head>
     <title>QUEST</title>
-    <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="./assets/css/bootstrap.css">
     <link rel="stylesheet" href="./assets/css/bootstrap.overwrite.css">
     <link rel="stylesheet" href="./assets/css/style.css" type="text/css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <style>
+        .result-box {
+            height: 20%;
+            margin-bottom: 2%;
+            box-shadow: 0px 0 3px #000;
+        }
+        
+        .report-box {
+            height: 30%;
+            margin-bottom: 2%;
+            box-shadow: 0px 0 3px #000;
+        }
+    </style>
 
     <body>
         <nav class="navbar navbar-default" style="background-color: white">
@@ -20,27 +32,31 @@
             </div>
         </nav>
 
-        <div class="container-fluid text-center">
-            <div class="content">
+        <div class="container-fluid">
+            <div class="content  text-center">
                 <div class="col-md-12">
                     <h2 style="color: skyblue">Test Name</h2>
-                    <h3 style="color: grey">Assessment Test</h3><br><br><br><br>
+                    <h3 style="color: grey">Result</h3><br><br>
                 </div>
             </div>
 
             <div class="content">
-                <div class="col-md-12" align="center">
-                    <div class="form-group">
-                        <div class="col-md-2 col-xs-6 col-md-offset-5 col-xs-offset-3">
-                            <input id="textinput" name="textinput" type="text" placeholder="Enter your key" class="form-control input-md">
-                        </div>
-                    </div><br><br>
+                <div class="col-md-6 result-box col-md-offset-3">
+                    <p>Custom message by admin</p>
+                    <br><br>
+                    <h2 style="text-align: center;"><span style="color: green">Pass</span>/<span style="color: red">Fail</span></h2>
                 </div>
-                <div class="col-md-12" align="center">
-                    <!-- Button -->
+            </div>
+            <div class="content">
+                <div class="col-md-6 report-box col-md-offset-3">
+                    <p>Detail report</p>
+                </div>
+            </div>
+            <div class="content" align="center">
+                <div class="col-md-12">
                     <div class="form-group">
-                        <div class="col-md-12">
-                            <a href="./registration.html"><button id="singlebutton" name="singlebutton" class="btn btn-primary">Enter</button></a>
+                        <div class="col-md-6 col-md-offset-3">
+                            <a href="http://ggktech.com/"><button id="singlebutton" name="singlebutton" class="btn btn-primary">Exit</button></a>
                         </div>
                     </div>
                 </div>
